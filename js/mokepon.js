@@ -31,25 +31,22 @@ function seleccionarMascotaJugador() {
 
   if (inputHipodoge.checked) {
     spanMascotaJugador.innerHTML = 'Hipodoge';
-    alert('Seleccionaste a Hipodoge');
     let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota');
     sectionSeleccionarMascota.style.display = 'none';
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
-    sectionSeleccionarAtaque.style.display = 'block';
+    sectionSeleccionarAtaque.style.display = 'flex';
   } else if (inputCapipepo.checked) {
     spanMascotaJugador.innerHTML = 'Capipepo';
-    alert('Seleccionaste a Capipepo');
     let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota');
     sectionSeleccionarMascota.style.display = 'none';
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
-    sectionSeleccionarAtaque.style.display = 'block';
+    sectionSeleccionarAtaque.style.display = 'flex';
   } else if (inputRatigueya.checked) {
     spanMascotaJugador.innerHTML = 'Ratigueya';
-    alert('Seleccionaste a Ratigueya');
     let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota');
     sectionSeleccionarMascota.style.display = 'none';
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
-    sectionSeleccionarAtaque.style.display = 'block';
+    sectionSeleccionarAtaque.style.display = 'flex';
   } else {
     alert('Selecciona una mascota');
     jugar = 0;
@@ -131,20 +128,25 @@ function revisarVidas() {
 }
 
 function crearMensaje(resultado) {
-  let sectionMensajes = document.getElementById('mensajes');
-  let parrafo = document.createElement('p');
-  parrafo.innerHTML =
-    'Tu mascota atacó con ' + ataqueJugador + ', las mascota del enemigo atacó con ' + ataqueEnemigo + '-' + resultado;
-  sectionMensajes.appendChild(parrafo);
+  let sectionMensajes = document.getElementById('resultado');
+  let ataqueDelJugador = document.getElementById('ataque-del-jugador');
+  let ataqueDelEnemigo = document.getElementById('ataque-del-enemigo');
+
+  let nuevoAtauqeDelJugador = document.createElement('p');
+  let nuevoAtauqeDelenemigo = document.createElement('p');
+
+  sectionMensajes.innerHTML = resultado;
+  nuevoAtauqeDelJugador.innerHTML = ataqueJugador;
+  nuevoAtauqeDelenemigo.innerHTML = ataqueEnemigo;
+
+  ataqueDelJugador.appendChild(nuevoAtauqeDelJugador);
+  ataqueDelEnemigo.appendChild(nuevoAtauqeDelenemigo);
 }
 
 function crearMensajeFinal(resultadoFinal) {
-  let sectionMensajes = document.getElementById('mensajes');
+  let sectionMensajes = document.getElementById('resultado');
 
-  let parrafo = document.createElement('p');
-  parrafo.innerHTML = resultadoFinal;
-
-  sectionMensajes.appendChild(parrafo);
+  sectionMensajes.innerHTML = resultadoFinal;
 
   let botonFuego = document.getElementById('boton-fuego');
   botonFuego.disabled = true;
