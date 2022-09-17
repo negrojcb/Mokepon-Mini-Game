@@ -71,7 +71,7 @@ input:checked + label {
 }
 
 .btn-ataque {
-    width: 200px;
+    width: 100px;
     height: 40px;
     margin: 40px;
     background-color: #FFEA11;
@@ -83,7 +83,7 @@ input:checked + label {
 }
 
 #mensajes {
-    width:280px;
+    width:250px;
     background:#5A8F7B;
     padding:20px;
     margin-top:20px;
